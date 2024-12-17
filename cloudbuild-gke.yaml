@@ -6,15 +6,22 @@ steps:
   args: ['push','gcr.io/${_PROJECT_ID}/${_CINAME}:${_VERSION}']
 
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: 'gcloud'
+  args:
+  - 'container'
+  - 'clusters'
+  - 'get-credentials'
+  - 'cicd-cluster'
+  - '--zone=asia-northeast1-a'
+  - '--project=devops-442409'
+
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: 'kubectl'
   args:
   - 'apply'
   - '-f'
   - 'kubernetes/deployment.yaml'
   - '--validate=false'
-  env:
-  - 'CLOUDSDK_COMPUTE_ZONE=asia-northeast1-a'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=cicd-cluster'
 
 options:
   logging: CLOUD_LOGGING_ONLY
