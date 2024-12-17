@@ -11,9 +11,11 @@ steps:
   - 'apply'
   - '-f'
   - 'kubernetes/deployment.yaml'
+  - '--validate=false'
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=asia-northeast1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=cicd-cluster'
+
 options:
   logging: CLOUD_LOGGING_ONLY
 
