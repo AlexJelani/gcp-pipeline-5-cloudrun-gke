@@ -7,10 +7,9 @@ steps:
 
 - name: 'gcr.io/cloud-builders/kubectl'
   args:
-  - 'set'
-  - 'image'
-  - 'deployment/cicd-app-1'
-  - 'runimage-sha256-1=gcr.io/${_PROJECT_ID}/${_CINAME}:${_VERSION}'
+  - 'apply'
+  - '-f'
+  - 'k8s-deployment.yaml'
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=asia-northeast1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=cicd-cluster'
@@ -21,5 +20,4 @@ options:
 substitutions:
   _PROJECT_ID: "devops-442409"
   _CINAME: "gke-image"
-
-  _VERSION: "v3.0"
+  _VERSION: "v4.0"
