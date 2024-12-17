@@ -13,7 +13,7 @@ steps:
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=asia-northeast1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=cicd-cluster'
-  - 'CLOUDSDK_PROJECT=devops-442409'
+
 
 options:
   logging: CLOUD_LOGGING_ONLY
@@ -21,4 +21,5 @@ options:
 substitutions:
   _PROJECT_ID: "devops-442409"
   _CINAME: "gke-image"
-  _VERSION: "v3.0"  _VERSION: "v4.0"
+
+  _VERSION: "v3.0"
