@@ -10,16 +10,14 @@ steps:
   args:
   - 'apply'
   - '-f'
-  - 'k8s-deployment.yaml'
+  - 'kubernetes/deployment.yaml'
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=asia-northeast1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=cicd-cluster'
-
 options:
   logging: CLOUD_LOGGING_ONLY
 
 substitutions:
   _PROJECT_ID: "devops-442409"
   _CINAME: "gke-image"
-  _VERSION: "v3.0"
   _VERSION: "v3.0"
